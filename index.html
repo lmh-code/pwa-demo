@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA-示例</title>
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./index.css">
+
+  <script src="./js/resize.js"></script>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="top-banner">
+      <img src="./image/top-banner.webp" class="banner-img" alt="暂无数据">
+    </div>
+
+    <ul class="article-list">
+      <li class="article-list__item">
+        <div class="left-wrap">
+          新的 ES13 规范终于发布了。 JavaScript 不是一种开源语言，它是一种需要遵循 ECMAScript 标准规范编写的语言，TC39 委员会负责讨论和批准新功能的发布， 那TC39他们是谁？
+        </div>
+        <div class="right-wrap">
+          <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46d108b60511497a9ec4115ffb1ed29d~tplv-k3u1fbpfcp-watermark.image" alt="暂无数据" draggable="false">
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script>
+    window.onload = function() {
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then((serviceWorker) => {
+          console.log('serviceWorker注册成功：', serviceWorker);
+        }).catch((err) => {
+          console.error('serviceWorker注册失败：', err);
+        })
+      }
+    }
+  </script>
+</body>
+</html>
