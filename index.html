@@ -26,6 +26,15 @@
           <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46d108b60511497a9ec4115ffb1ed29d~tplv-k3u1fbpfcp-watermark.image" alt="暂无数据" draggable="false">
         </div>
       </li>
+
+      <li class="article-list__item">
+        <div class="left-wrap">
+          新的 ES13 规范终于发布了。 JavaScript 不是一种开源语言，它是一种需要遵循 ECMAScript 标准规范编写的语言，TC39 委员会负责讨论和批准新功能的发布， 那TC39他们是谁？
+        </div>
+        <div class="right-wrap">
+          <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d4c21984f954c6ca326fdbf73bc5554~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp" alt="暂无数据" draggable="false">
+        </div>
+      </li>
     </ul>
   </div>
   <script>
@@ -37,6 +46,16 @@
           console.error('serviceWorker注册失败：', err);
         })
       }
+
+      if(window.Notification && window.Notification.permission === 'default') {
+        window.Notification.requestPermission()
+      }
+      window.addEventListener('offline', function() {
+        new Notification('系统通知', {body: '您现在处于离线状态！'})
+      })
+      window.addEventListener('online', function() {
+        new Notification('系统通知', {body: '上线了，尽情冲浪吧！'})
+      })
     }
   </script>
 </body>
